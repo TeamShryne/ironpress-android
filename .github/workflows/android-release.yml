@@ -32,6 +32,14 @@ jobs:
           cargo install cargo-ndk --locked
       - name: Build native libraries
         run: cargo ndk -t arm64-v8a -t armeabi-v7a -t x86 -t x86_64 -o bindings/android/ironpress-android/src/main/jniLibs build -p ironpress-android --release
+      - name: Keep only the JNI library in the AAR
+        shell: bash
+        run: |
+          NDK_STRIP="$ANDROID_HOME/ndk/27.2.12479018/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-strip"
+          while IFS= read -r library; do
+            "$NDK_STRIP" --strip-unneeded "$library"
+          done < <(find bindings/android/ironpress-android/src/main/jniLibs -name 'libironpress_android.so' -type f)
+          find bindings/android/ironpress-android/src/main/jniLibs -type f -name '*.so' ! -name 'libironpress_android.so' -delete
       - name: Build AAR
         working-directory: bindings/android
         run: gradle --no-daemon :ironpress-android:assembleRelease
