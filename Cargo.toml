@@ -24,7 +24,12 @@ exclude = [
 
 [workspace]
 resolver = "3"
-members = ["bindings/c", "bindings/python", "bindings/ruby/ext/ironpress"]
+members = [
+    "bindings/c",
+    "bindings/python",
+    "bindings/ruby/ext/ironpress",
+    "bindings/android/native",
+]
 
 [patch.crates-io]
 ironpress = { path = "." }
