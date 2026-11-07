@@ -2,28 +2,6 @@ name: Deploy Website
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'src/**'
-      - 'site/**'
-      - 'playground/**'
-      - 'tests/parity/**'
-      - 'tests/parity_support/**'
-      - 'tests/feature_parity.rs'
-      - 'scripts/parity*.sh'
-      - 'scripts/check-site.mjs'
-      - 'scripts/site-document*.mjs'
-      - 'scripts/package*.json'
-      - 'scripts/build-font-packs.sh'
-      - 'scripts/build-wasm-package.sh'
-      - 'scripts/prepare-wasm-package.mjs'
-      - 'scripts/test-wasm-font-packs.mjs'
-      - 'bindings/wasm/**'
-      - 'font-packs/**'
-      - 'Cargo.toml'
-      - '.github/workflows/playground.yml'
-
 permissions:
   contents: read
   pages: write

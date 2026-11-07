@@ -8,33 +8,6 @@ on:
         required: false
         default: false
         type: boolean
-  pull_request:
-    branches: [main]
-    paths:
-      - 'Cargo.toml'
-      - 'src/**'
-      - 'bindings/c/**'
-      - 'bindings/dotnet/**'
-      - 'tests/fonts/IronpressCjkVertical.ttf'
-      - 'tests/parity/fonts/ParitySans.ttf'
-      - 'scripts/bump-version.sh'
-      - 'scripts/check-release-versions.sh'
-      - '.github/workflows/dotnet.yml'
-  push:
-    branches: [main]
-    paths:
-      - 'Cargo.toml'
-      - 'src/**'
-      - 'bindings/c/**'
-      - 'bindings/dotnet/**'
-      - 'tests/fonts/IronpressCjkVertical.ttf'
-      - 'tests/parity/fonts/ParitySans.ttf'
-      - 'scripts/bump-version.sh'
-      - 'scripts/check-release-versions.sh'
-      - '.github/workflows/dotnet.yml'
-  release:
-    types: [published]
-
 permissions:
   contents: read
 

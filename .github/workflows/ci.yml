@@ -8,12 +8,6 @@ on:
         type: boolean
         required: true
         default: false
-  push:
-    branches: [main]
-    tags: ['v*']
-  pull_request:
-    branches: [main]
-
 # Restrict default permissions to read-only for all jobs.
 # Jobs that need more (benchmarks, publish) override below.
 permissions:

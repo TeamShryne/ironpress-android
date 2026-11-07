@@ -7,10 +7,6 @@ name: Parity Gate
 # refs.lock. Oracle and candidate are rasterized by this job's same Poppler.
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-
 permissions:
   contents: read
 

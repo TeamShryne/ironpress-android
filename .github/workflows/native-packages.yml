@@ -2,21 +2,6 @@ name: Native package managers
 
 on:
   workflow_dispatch:
-  pull_request:
-    branches: [main]
-    paths:
-      - 'Cargo.lock'
-      - 'packaging/conan/**'
-      - 'packaging/vcpkg/**'
-      - '.github/workflows/native-packages.yml'
-  push:
-    branches: [main]
-    paths:
-      - 'Cargo.lock'
-      - 'packaging/conan/**'
-      - 'packaging/vcpkg/**'
-      - '.github/workflows/native-packages.yml'
-
 permissions:
   contents: read
 
