@@ -31,7 +31,9 @@ pub fn set_option(env: &mut JNIEnv, handle: i64, option: JString, text: JString,
     let option: String = env.get_string(&option).map_err(|e| e.to_string())?.into();
     let text: String = env.get_string(&text).map_err(|e| e.to_string())?.into();
     let byte_data = env.convert_byte_array(byte_array).map_err(|e| e.to_string())?;
-    let floats = env.convert_float_array(float_array).map_err(|e| e.to_string())?;
+    let float_len = env.get_array_length(&float_array).map_err(|e| e.to_string())? as usize;
+    let mut floats = vec![0.0; float_len];
+    env.get_float_array_region(&float_array, 0, &mut floats).map_err(|e| e.to_string())?;
     let converter = handle as usize as *mut abi::IronpressConverter;
     let mut error = std::ptr::null_mut();
     // SAFETY: `handle` is owned by the Java converter and temporary arrays live for the call.
